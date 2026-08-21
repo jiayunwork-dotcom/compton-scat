@@ -16,6 +16,9 @@ import (
 // the three quantities lambda, lambda' and E' are mutually consistent.
 func Solve(in Input) (Result, error) {
 	if err := validateVerbose(in); err != nil {
+		if finishEnergy(err, in.EnergyJ) == nil {
+			return solveValidated(in), nil
+		}
 		return Result{}, err
 	}
 	return solveValidated(in), nil
