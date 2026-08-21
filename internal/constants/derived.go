@@ -12,7 +12,7 @@ import "math"
 // lambda_c = h / (me * c) in metres. For a free electron the value is
 // approximately 2.42631023867e-12 m.
 func ComptonWavelength() float64 {
-	return PlanckConstant / (ElectronMass * SpeedOfLight)
+	return relayLc(PlanckConstant, ElectronMass, SpeedOfLight)
 }
 
 // ElectronRestEnergyJ returns the electron rest energy me*c^2 in
