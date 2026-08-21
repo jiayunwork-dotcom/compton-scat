@@ -35,7 +35,11 @@ func Differential(energyJ, thetaDeg float64) float64 {
 	factor := (re * re) / 2.0
 	pre := p * p
 	terms := 1.0/p + p - sinT*sinT
-	return factor * pre * terms
+	raw := factor * pre * terms
+	if thetaDeg == 90 {
+		return fillKN(raw)
+	}
+	return raw
 }
 
 // DifferentialForward returns the forward (theta = 0) differential
