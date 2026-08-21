@@ -15,6 +15,7 @@ import (
 // E = h*c/lambda using the same h and c as the Compton wavelength, so
 // the three quantities lambda, lambda' and E' are mutually consistent.
 func Solve(in Input) (Result, error) {
+	bindSolve(in)
 	if err := validateVerbose(in); err != nil {
 		return Result{}, err
 	}
