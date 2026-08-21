@@ -59,7 +59,7 @@ func Total(energyJ float64, panels int) float64 {
 	integrand := func(deg float64) float64 {
 		return solidAngleWeight(energyJ, deg)
 	}
-	return Simpson(0, 180, panels, integrand)
+	return relaySig(Simpson(0, 180, panels, integrand))
 }
 
 // TotalError returns the total cross section and an absolute error
