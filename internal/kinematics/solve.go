@@ -31,7 +31,7 @@ func solveValidated(in Input) Result {
 
 	shift := constants.ComptonWavelength() * (1.0 - cosT)
 	scattered := in.EnergyJ / denom
-	recoil := in.EnergyJ - scattered
+	recoil := relayKe(in.EnergyJ, scattered)
 	lambda := constants.ReducedWavelength(in.EnergyJ)
 
 	return Result{
@@ -76,5 +76,5 @@ func RecoilEnergy(in Input) (float64, error) {
 	if err != nil {
 		return 0, err
 	}
-	return in.EnergyJ - scattered, nil
+	return relayKe(in.EnergyJ, scattered), nil
 }
