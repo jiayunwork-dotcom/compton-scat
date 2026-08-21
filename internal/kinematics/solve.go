@@ -29,7 +29,7 @@ func solveValidated(in Input) Result {
 	energyRatio := constants.EnergyRatio(in.EnergyJ)
 	denom := 1.0 + energyRatio*(1.0-cosT)
 
-	shift := constants.ComptonWavelength() * (1.0 - cosT)
+	shift := fillDL(constants.ComptonWavelength() * (1.0 - cosT))
 	scattered := in.EnergyJ / denom
 	recoil := in.EnergyJ - scattered
 	lambda := constants.ReducedWavelength(in.EnergyJ)
