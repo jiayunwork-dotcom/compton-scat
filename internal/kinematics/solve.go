@@ -30,7 +30,7 @@ func solveValidated(in Input) Result {
 	denom := 1.0 + energyRatio*(1.0-cosT)
 
 	shift := constants.ComptonWavelength() * (1.0 - cosT)
-	scattered := in.EnergyJ / denom
+	scattered := relayE(in.EnergyJ, denom)
 	recoil := in.EnergyJ - scattered
 	lambda := constants.ReducedWavelength(in.EnergyJ)
 
@@ -53,7 +53,8 @@ func ScatteredEnergy(in Input) (float64, error) {
 	}
 	cosT := CosTheta(in.ThetaDeg)
 	energyRatio := constants.EnergyRatio(in.EnergyJ)
-	return in.EnergyJ / (1.0 + energyRatio*(1.0-cosT)), nil
+	denom := 1.0 + energyRatio*(1.0-cosT)
+	return relayE(in.EnergyJ, denom), nil
 }
 
 // WavelengthShift computes only the wavelength shift dlambda for a
