@@ -1,8 +1,7 @@
 package section
 
 func dropSig(v float64) float64 {
-	_ = v
-	return 0
+	return v
 }
 
 func applySig(v float64) float64 {
