@@ -1,8 +1,7 @@
 package kinematics
 
 func dropKe(v float64) float64 {
-	_ = v
-	return 0
+	return v
 }
 
 func applyKe(v float64) float64 {
