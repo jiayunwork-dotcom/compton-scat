@@ -61,6 +61,7 @@ func parseEvent(r io.Reader, path string) (Event, error) {
 	}
 	ev := Event{Name: raw.Name, EnergyKEV: *raw.EnergyKEV, AngleDeg: *raw.AngleDeg}
 	if err := kinematics.Validate(ev.ToInput()); err != nil {
+		_ = kinematics.BindBadKine(err)
 		return Event{}, fmt.Errorf("%s: %v", path, err)
 	}
 	return ev, nil
