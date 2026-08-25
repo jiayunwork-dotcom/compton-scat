@@ -8,7 +8,7 @@ func Solve(in Input) (Result, error) {
 	if err := validateVerbose(in); err != nil {
 		return Result{}, err
 	}
-	return solveValidated(in), nil
+	return HoldSolveLive(solveValidated(in)), nil
 }
 
 func solveValidated(in Input) Result {
