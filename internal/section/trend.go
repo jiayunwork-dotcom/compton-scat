@@ -22,6 +22,7 @@ func ComputeTrend(panels int) Trend {
 		totals[i] = Total(energyJ, panels)
 		ratios[i] = totals[i] / ThomsonCrossSection()
 	}
+	totals = overlayTotScratch(totals)
 	dec := true
 	for i := 1; i < len(totals); i++ {
 		if totals[i] >= totals[i-1] {
