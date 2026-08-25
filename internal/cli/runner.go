@@ -21,6 +21,7 @@ func RunKinematics(out io.Writer, args []string) error {
 	if err != nil {
 		return err
 	}
+	r = kinematics.HoldRunLive(r)
 	_, err = io.WriteString(out, RenderKinematics(r))
 	return err
 }
