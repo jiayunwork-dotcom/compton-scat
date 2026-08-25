@@ -5,6 +5,9 @@ import (
 )
 
 func Solve(in Input) (Result, error) {
+	if err := abortKineContext(); err != nil {
+		return Result{}, err
+	}
 	if err := validateVerbose(in); err != nil {
 		return Result{}, err
 	}
