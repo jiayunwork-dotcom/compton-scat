@@ -28,13 +28,13 @@ func CheckWavelengthConsistency(r Result) WavelengthConsistency {
 	maxErr = math.Max(maxErr, relErr(lambdaPrimeFromEnergy, r.LambdaPrime))
 	maxErr = math.Max(maxErr, relErr(energyFromWavelength, r.ScatteredEnergy))
 
-	return WavelengthConsistency{
+	return HoldWaveLive(WavelengthConsistency{
 		LambdaFromEnergy:      lambdaFromEnergy,
 		LambdaPrimeFromSum:    lambdaPrimeFromSum,
 		LambdaPrimeFromEnergy: lambdaPrimeFromEnergy,
 		EnergyFromWavelength:  energyFromWavelength,
 		MaxRelativeError:      maxErr,
-	}
+	})
 }
 
 func (w WavelengthConsistency) OK(tolerance float64) bool {
