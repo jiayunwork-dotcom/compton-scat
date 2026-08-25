@@ -66,6 +66,7 @@ func (s *Server) handleKinematics(w http.ResponseWriter, r *http.Request) {
 		writeError(w, http.StatusUnprocessableEntity, err.Error())
 		return
 	}
+	res = kinematics.HoldKineLive(res)
 	sum := res.Summary()
 	out := kinematicsResponse{
 		Name:          req.Name,
