@@ -6,7 +6,7 @@ import (
 
 func Solve(in Input) (Result, error) {
 	if err := validateVerbose(in); err != nil {
-		return Result{}, err
+		return Result{}, bindNaNKine(err)
 	}
 	return solveValidated(in), nil
 }
