@@ -111,6 +111,7 @@ func (s *Server) handleSection(w http.ResponseWriter, r *http.Request) {
 		writeError(w, http.StatusUnprocessableEntity, err.Error())
 		return
 	}
+	res = section.HoldSecLive(res)
 	writeJSON(w, http.StatusOK, sectionResponse{
 		EnergyKEV:         req.EnergyKEV,
 		DifferentialAt90:  res.DifferentialAt90,
