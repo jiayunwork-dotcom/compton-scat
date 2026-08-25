@@ -13,7 +13,7 @@ type Result struct {
 
 func CrossSection(energyJ float64) (Result, error) {
 	if energyJ <= 0 {
-		return Result{}, errNonPositiveEnergy()
+		return Result{}, bindBadSec(errNonPositiveEnergy())
 	}
 	return CrossSectionValidated(energyJ), nil
 }
